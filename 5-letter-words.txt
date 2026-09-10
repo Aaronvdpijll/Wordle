@@ -1804,6 +1804,7 @@ oases
 oasis
 oaten
 oaths
+obama
 obese
 obeys
 occur
@@ -3101,3 +3102,5 @@ yours
 youth
 zebra
 zones
+beaut
+duvet

@@ -3,6 +3,8 @@ package main;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -25,6 +27,7 @@ public class Game {
 		}
 		boolean found = false;
 		Scanner scan = new Scanner(System.in);
+		Instant time_start = Instant.now();
 		while ((found == false) && (attempt_count < 6)) {
 			String word_attempt = scan.nextLine();
 			if ((word_attempt.length() == 5) && this.words.contains(word_attempt)) {
@@ -43,6 +46,9 @@ public class Game {
 			}
 		}
 		scan.close();
+		Instant time_stop = Instant.now();
+		long time_elapsed = Duration.between(time_start, time_stop).toSeconds();
+		System.out.println(Scoring.score3(attempt_count, time_elapsed) + " Score 3");
 
 	}
 
@@ -63,12 +69,7 @@ public class Game {
 		}
 		display(words_display);
 		attempt_count++;
-		if (this.word.equals(word_attempt.strip())) {
-			return true;
-		} else {
-			return false;
-		}
-
+		return this.word.equals(word_attempt.strip()) ? true : false;
 	}
 
 	public void display(String[][] words_display) {
