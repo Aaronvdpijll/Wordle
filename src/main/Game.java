@@ -31,6 +31,7 @@ public class Game {
 		while ((found == false) && (attempt_count < 6)) {
 			String word_attempt = scan.nextLine();
 			if ((word_attempt.length() == 5) && this.words.contains(word_attempt)) {
+				attempt_words[attempt_count] = word_attempt;
 				found = check_word(word_attempt);
 				if (found == true) {
 					System.out.println("Congrats thats the correct word");
